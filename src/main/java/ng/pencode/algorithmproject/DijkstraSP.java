@@ -21,7 +21,7 @@ public class DijkstraSP {
     public static boolean verifyNonNegative(WDgraph G){
         boolean result = true;
         //code goes here
-        
+        System.out.println(G.edges.get(0).get(1));
         return result;
     }
     

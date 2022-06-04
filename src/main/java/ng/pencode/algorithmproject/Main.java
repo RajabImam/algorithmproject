@@ -21,6 +21,7 @@ public class Main {
         // Create a unweighted-digraphs
         System.out.println("Introduce the path where the graph-DFS-BFS.txt file is stored");
         String file = input.nextLine();
+        if (file.isEmpty()) {file = "src/main/java/ng/pencode/algorithmproject/graph-DFS-BFS.txt";}
 
         Graph diGraph = GraphFactory.createDiGraphFromTextFile(file);
         System.out.println(diGraph.getGraphType());
@@ -30,6 +31,7 @@ public class Main {
         // Create a weighted-digraphs
         System.out.println("Introduce the path where the graph-WDG.txt file is stored");
         String file2 = input.nextLine();
+        if (file2.isEmpty()) {file2 = "src/main/java/ng/pencode/algorithmproject/graph-WDG.txt";}
 
         Graph wdGraph = GraphFactory.createWDGraphFromTextFile(file2);
         System.out.println(wdGraph.getGraphType());
@@ -42,6 +44,8 @@ public class Main {
         for (Integer vertex: result)
             System.out.print(vertex+"->" );
         System.out.print("End");
+
+        DijkstraSP.verifyNonNegative((WDgraph) wdGraph);
     }
     
 }
