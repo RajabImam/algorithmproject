@@ -1,0 +1,14 @@
+
+.idea/jarRepositories.xml
+.idea/encodings.xml
+target/classes/ng/pencode/algorithmproject/WDgraph.class
+target/classes/ng/pencode/algorithmproject/Main.class
+target/classes/ng/pencode/algorithmproject/GraphFactory.class
+target/classes/ng/pencode/algorithmproject/Graph.class
+target/classes/ng/pencode/algorithmproject/Edge.class
+target/classes/ng/pencode/algorithmproject/DirectedEdge.class
+target/classes/ng/pencode/algorithmproject/DijkstraSP.class
+target/classes/ng/pencode/algorithmproject/Digraph.class
+.idea/vcs.xml
+.idea/misc.xml
+.idea/compiler.xml
