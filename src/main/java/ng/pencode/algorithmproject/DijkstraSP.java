@@ -13,9 +13,10 @@ import java.util.List;
  */
 public class DijkstraSP {
     
-    
-    
-    
+    boolean[] marked;
+    int[] previous;
+    int[] distance;
+
     /*  takes as input a weighted directed graph 
         and verifies that all weights in the graph 
         are non negative.
@@ -28,6 +29,10 @@ public class DijkstraSP {
         }
         return true;
     }
+
+    public static void DijkstraSP(WDgraph G, int s) {
+
+    }
     
     /**/
     public static boolean hasPathTo(int v){
@@ -36,7 +41,7 @@ public class DijkstraSP {
     }
     
     public static void printSP(int v){
-        
+        if (!hasPathTo(v)) {System.out.println("No path");}
     }
     
 }
