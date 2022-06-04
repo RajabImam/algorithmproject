@@ -43,9 +43,9 @@ public class Main {
         System.out.println("Visited order form vertex 5: ");
         for (Integer vertex: result)
             System.out.print(vertex+"->" );
-        System.out.print("End");
+        System.out.println("End");
 
-        DijkstraSP.verifyNonNegative((WDgraph) wdGraph);
-    }
+        System.out.println(DijkstraSP.verifyNonNegative((WDgraph) wdGraph));
+     }
     
 }

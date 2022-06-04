@@ -5,6 +5,8 @@
  */
 package ng.pencode.algorithmproject;
 
+import java.util.List;
+
 /**
  *
  * @author RAJAB IMAM
@@ -19,10 +21,12 @@ public class DijkstraSP {
         are non negative.
     */
     public static boolean verifyNonNegative(WDgraph G){
-        boolean result = true;
-        //code goes here
-        System.out.println(G.edges.get(0).get(1));
-        return result;
+        for(List<DirectedEdge> list : G.edges) {
+            for(DirectedEdge edge : list) {
+                if (edge.getWeight() < 0) {return false;}
+            }
+        }
+        return true;
     }
     
     /**/
