@@ -34,34 +34,26 @@ public class DijkstraSP {
     }
 
     public DijkstraSP(WDgraph G, int s) {
-        // If there is a least one negative edge, we prefer to not execute the
+        // If there is at least one negative edge, we prefer to not execute the
         // Dijkstra algorithm because we know we wouldn't find the correct shortest path
         if (!verifyNonNegative(G)) {
             System.out.println("The graph has negative value, so it is not possible to find the real shortest path");
             return;
         }
 
-        // Initializing the visited nodes list
+        // Initializing the visited nodes, distance and previous lists
         marked = new boolean[G.n];
-        for (int i = 0; i < marked.length; i++) {
-            marked[i] = false;
-        }
-
-        // Initializing the distance list
         distance = new int[G.n];
-        for (int i = 0; i < distance.length; i++) {
-            distance[i] = (i == s) ? 0 : Integer.MAX_VALUE;
-        }
-
-        // Initializing the previous list
         previous = new int[G.n];
-        for (int i = 0; i < previous.length; i++) {
+        for (int i = 0; i < G.n; i++) {
+            marked[i] = false;
+            distance[i] = (i == s) ? 0 : Integer.MAX_VALUE;
             previous[i] = -1;
         }
 
         boolean allVisitedNodes = false;
 
-        while (!allVisitedNodes) { // We chack if all the nodes have been visited
+        while (!allVisitedNodes) { // We check if all the nodes have been visited
             // We initialize the current path and the current node
             int currentPath = Integer.MAX_VALUE, currentNode = -1;
             for (int i = 0; i < distance.length; i++) {

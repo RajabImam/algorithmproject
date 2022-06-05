@@ -51,10 +51,12 @@ public class Main {
 
         System.out.println(DijkstraSP.verifyNonNegative((WDgraph) wdGraph));
         DijkstraSP dijkstraWDG = new DijkstraSP((WDgraph) wdGraph, 0);
-        int v = 1;
-        System.out.println(dijkstraWDG.hasPathTo(v));
-        System.out.println(dijkstraWDG.distTo(v));
-        dijkstraWDG.printSP(v);
+        //int v = 0;
+        for (int v = 0; v < wdGraph.n; v++) {
+           System.out.println(dijkstraWDG.hasPathTo(v));
+           System.out.println(dijkstraWDG.distTo(v));
+           dijkstraWDG.printSP(v);
+        }
     }
 
 }
