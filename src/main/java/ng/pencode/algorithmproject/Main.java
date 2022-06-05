@@ -53,10 +53,11 @@ public class Main {
         System.out.println(DijkstraSP.verifyNonNegative((WDgraph) wdGraph));
         int s = 0;
         DijkstraSP dijkstraWDG = new DijkstraSP((WDgraph) wdGraph, s);
-        int v = 1;
-        System.out.println("Is there a path between " + s + " and " + v + " ? Answer : " + dijkstraWDG.hasPathTo(v));
-        if (dijkstraWDG.hasPathTo(v)) {
-            System.out.println("Distance between " + s + " and " + v + " : " + dijkstraWDG.distTo(v));
+        //int v = 0;
+        for (int v = 0; v < wdGraph.n; v++) {
+            System.out.println("========="+v+"=========");
+            System.out.println(dijkstraWDG.hasPathTo(v));
+            System.out.println(dijkstraWDG.distTo(v));
             dijkstraWDG.printSP(v);
         }
     }
