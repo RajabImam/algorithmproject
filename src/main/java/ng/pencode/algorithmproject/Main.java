@@ -46,7 +46,7 @@ public class Main {
         List<Integer> result = diGraph.dfs(5, new HashSet<Integer>());
         System.out.println("Visited order form vertex 5: ");
         for (Integer vertex : result)
-            System.out.print(vertex + " → ");
+            System.out.print(vertex + " ==> ");
         System.out.println("End");
 
         System.out.println("\nTest for the Dijkstra algorithm");
