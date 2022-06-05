@@ -15,12 +15,12 @@ public class DijkstraSP {
 
     boolean[] marked;
     int[] previous;
-    int[] distance;
+    float[] distance;
 
     /*
      * takes as input a weighted directed graph
      * and verifies that all weights in the graph
-     * are non negative.
+     * are non-negative.
      */
     public static boolean verifyNonNegative(WDgraph G) {
         for (List<DirectedEdge> list : G.edges) {
@@ -43,11 +43,11 @@ public class DijkstraSP {
 
         // Initializing the visited nodes, distance and previous lists
         marked = new boolean[G.n];
-        distance = new int[G.n];
+        distance = new float[G.n];
         previous = new int[G.n];
         for (int i = 0; i < G.n; i++) {
             marked[i] = false;
-            distance[i] = (i == s) ? 0 : Integer.MAX_VALUE;
+            distance[i] = (i == s) ? 0 : Float.MAX_VALUE;
             previous[i] = -1;
         }
 
@@ -55,7 +55,8 @@ public class DijkstraSP {
 
         while (!allVisitedNodes) { // We check if all the nodes have been visited
             // We initialize the current path and the current node
-            int currentPath = Integer.MAX_VALUE, currentNode = -1;
+            float currentPath = Float.MAX_VALUE;
+            int currentNode = -1;
             for (int i = 0; i < distance.length; i++) {
                 if (!marked[i] && distance[i] < currentPath) {
                     currentNode = i;
@@ -69,7 +70,7 @@ public class DijkstraSP {
             // We now look at all the neighbours of the current nodes
             List<DirectedEdge> neighbours = G.edges.get(currentNode);
             for (DirectedEdge directedEdge : neighbours) {
-                int distanceAlt = (int) (distance[currentNode] + directedEdge.getWeight());
+                float distanceAlt = (float) (distance[currentNode] + directedEdge.getWeight());
                 int destinationEdge = directedEdge.getW();
                 if (distanceAlt < distance[destinationEdge]) {
                     distance[destinationEdge] = distanceAlt;

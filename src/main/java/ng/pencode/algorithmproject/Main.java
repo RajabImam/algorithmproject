@@ -53,9 +53,10 @@ public class Main {
         DijkstraSP dijkstraWDG = new DijkstraSP((WDgraph) wdGraph, 0);
         //int v = 0;
         for (int v = 0; v < wdGraph.n; v++) {
-           System.out.println(dijkstraWDG.hasPathTo(v));
-           System.out.println(dijkstraWDG.distTo(v));
-           dijkstraWDG.printSP(v);
+            System.out.println("========="+v+"=========");
+            System.out.println(dijkstraWDG.hasPathTo(v));
+            System.out.println(dijkstraWDG.distTo(v));
+            dijkstraWDG.printSP(v);
         }
     }
 
