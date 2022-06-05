@@ -74,7 +74,7 @@ public class WDgraph extends Graph<Integer, DirectedEdge> {
     public String getGraphType() {
         return "WDgraph - weighted-digraphs";
     }
-
+ 
     /**
      * Add new edge to weighted-digraphs
      * 
