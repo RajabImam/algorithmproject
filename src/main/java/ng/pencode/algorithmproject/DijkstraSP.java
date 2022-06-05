@@ -12,26 +12,34 @@ import java.util.List;
  * @author RAJAB IMAM
  */
 public class DijkstraSP {
-    
+
     boolean[] marked;
     int[] previous;
     int[] distance;
 
-    /*  takes as input a weighted directed graph 
-        and verifies that all weights in the graph 
-        are non negative.
-    */
-    public static boolean verifyNonNegative(WDgraph G){
-        for(List<DirectedEdge> list : G.edges) {
-            for(DirectedEdge edge : list) {
-                if (edge.getWeight() < 0) {return false;}
+    /*
+     * takes as input a weighted directed graph
+     * and verifies that all weights in the graph
+     * are non negative.
+     */
+    public static boolean verifyNonNegative(WDgraph G) {
+        for (List<DirectedEdge> list : G.edges) {
+            for (DirectedEdge edge : list) {
+                if (edge.getWeight() < 0) {
+                    return false;
+                }
             }
         }
         return true;
     }
 
     public DijkstraSP(WDgraph G, int s) {
-        if (!verifyNonNegative(G)) return;
+        // If there is a least one negative edge, we prefer to not execute the
+        // Dijkstra algorithm because we know we wouldn't find the correct shortest path
+        if (!verifyNonNegative(G)) {
+            System.out.println("The graph has negative value, so it is not possible to find the real shortest path");
+            return;
+        }
 
         // Initializing the visited nodes list
         marked = new boolean[G.n];
@@ -48,7 +56,7 @@ public class DijkstraSP {
         // Initializing the previous list
         previous = new int[G.n];
         for (int i = 0; i < previous.length; i++) {
-            previous[i] = (i==s) ? s : -1;
+            previous[i] = (i == s) ? s : -1;
         }
 
         boolean allVisitedNodes = false;
@@ -57,7 +65,7 @@ public class DijkstraSP {
             // We initialize the current path and the current node
             int currentPath = Integer.MAX_VALUE, currentNode = -1;
             for (int i = 0; i < distance.length; i++) {
-                if (distance[i] < currentPath) {
+                if (!marked[i] && distance[i] < currentPath) {
                     currentNode = i;
                     currentPath = distance[currentNode];
                 }
@@ -67,7 +75,7 @@ public class DijkstraSP {
             marked[currentNode] = true;
 
             // We now look at all the neighbours of the current nodes
-            List<DirectedEdge> neighbours =  G.edges.get(currentNode);
+            List<DirectedEdge> neighbours = G.edges.get(currentNode);
             for (DirectedEdge directedEdge : neighbours) {
                 int distanceAlt = (int) (distance[currentNode] + directedEdge.getWeight());
                 int destinationEdge = directedEdge.getW();
@@ -80,15 +88,17 @@ public class DijkstraSP {
             // We check if we have visited all the nodes
             for (boolean isVisited : marked) {
                 if (!isVisited) {
+                    // At least one node hasn't benn visited yet
                     break;
                 }
             }
+            // All the nodes have been visited if we arrive here
             allVisitedNodes = true;
         }
     }
-    
+
     /**/
-    public boolean hasPathTo(int v){
+    public boolean hasPathTo(int v) {
         // If the node was marked, it should be visited
         // if a node is not visited at the end of the algorithm then there is no path
         return !marked[v];
@@ -97,17 +107,20 @@ public class DijkstraSP {
     public float distTo(int v) {
         return distance[v];
     }
-    
-    public void printSP(int v){
-        if (!hasPathTo(v)) {System.out.println("No path to " + v); return;}
+
+    public void printSP(int v) {
+        if (!hasPathTo(v)) {
+            System.out.println("No path to " + v);
+            return;
+        }
         if (previous[v] == -1) {
             System.out.println("There is no need to show the shortest path, because you are already in the destination");
         }
         String shortestPath = "";
         while (previous[v] != -1) {
-            shortestPath +=  v + " ";
             printSP(previous[v]);
         }
+        System.out.println(v + " ");
     }
-    
+
 }
