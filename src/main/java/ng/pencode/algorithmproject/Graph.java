@@ -34,7 +34,7 @@ public abstract class Graph<V extends Comparable<V>, E>{
     */
     public Graph(int nbVertices, int nbEdges) {
         n = nbVertices;
-        m = nbVertices;
+        m = nbEdges;
         edges = new ArrayList<List<E>>();
     }
     
