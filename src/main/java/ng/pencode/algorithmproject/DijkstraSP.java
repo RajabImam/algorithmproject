@@ -113,7 +113,7 @@ public class DijkstraSP {
             return;
         }
         printSP(previous[v]);
-        System.out.println(v + " ");
+        System.out.print(" → "+ v);
     }
 
 }
