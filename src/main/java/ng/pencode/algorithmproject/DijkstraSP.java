@@ -92,6 +92,10 @@ public class DijkstraSP {
         // If the node was marked, it should be visited
         return marked[v];
     }
+
+    public float distTo(int v) {
+        return distance[v];
+    }
     
     public void printSP(int v){
         if (!hasPathTo(v)) {System.out.println("No path to " + v); return;}
