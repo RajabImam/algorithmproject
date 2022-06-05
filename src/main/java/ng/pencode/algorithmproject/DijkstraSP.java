@@ -44,7 +44,7 @@ public class DijkstraSP {
         // Initializing the visited nodes list
         marked = new boolean[G.n];
         for (int i = 0; i < marked.length; i++) {
-            marked[i] = (i == s);
+            marked[i] = false;
         }
 
         // Initializing the distance list
@@ -56,7 +56,7 @@ public class DijkstraSP {
         // Initializing the previous list
         previous = new int[G.n];
         for (int i = 0; i < previous.length; i++) {
-            previous[i] = (i == s) ? s : -1;
+            previous[i] = -1;
         }
 
         boolean allVisitedNodes = false;
@@ -86,14 +86,15 @@ public class DijkstraSP {
             }
 
             // We check if we have visited all the nodes
+            allVisitedNodes = true;
             for (boolean isVisited : marked) {
                 if (!isVisited) {
                     // At least one node hasn't benn visited yet
+                    allVisitedNodes = false;
                     break;
                 }
             }
-            // All the nodes have been visited if we arrive here
-            allVisitedNodes = true;
+
         }
     }
 
@@ -101,7 +102,7 @@ public class DijkstraSP {
     public boolean hasPathTo(int v) {
         // If the node was marked, it should be visited
         // if a node is not visited at the end of the algorithm then there is no path
-        return !marked[v];
+        return marked[v];
     }
 
     public float distTo(int v) {
@@ -114,12 +115,11 @@ public class DijkstraSP {
             return;
         }
         if (previous[v] == -1) {
-            System.out.println("There is no need to show the shortest path, because you are already in the destination");
+            System.out.println("Here is the shortest path to " + v + " : ");
+            System.out.println(v + " ");
+            return;
         }
-        String shortestPath = "";
-        while (previous[v] != -1) {
-            printSP(previous[v]);
-        }
+        printSP(previous[v]);
         System.out.println(v + " ");
     }
 
