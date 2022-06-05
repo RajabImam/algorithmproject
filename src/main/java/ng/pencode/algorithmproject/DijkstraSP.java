@@ -94,7 +94,7 @@ public class DijkstraSP {
     }
     
     public void printSP(int v){
-        if (!hasPathTo(v)) {System.out.println("No path");}
+        if (!hasPathTo(v)) {System.out.println("No path to " + v); return;}
         if (previous[v] == -1) {
             System.out.println("There is no need to show the shortest path, because you are already in the destination");
         }
