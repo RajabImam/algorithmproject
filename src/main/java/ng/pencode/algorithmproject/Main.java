@@ -46,16 +46,16 @@ public class Main {
         List<Integer> result = diGraph.dfs(5, new HashSet<Integer>());
         System.out.println("Visited order form vertex 5: ");
         for (Integer vertex : result)
-            System.out.print(vertex + "->");
+            System.out.print(vertex + " → ");
         System.out.println("End");
 
         System.out.println(DijkstraSP.verifyNonNegative((WDgraph) wdGraph));
         DijkstraSP dijkstraWDG = new DijkstraSP((WDgraph) wdGraph, 0);
         //int v = 0;
         for (int v = 0; v < wdGraph.n; v++) {
-            System.out.println("========="+v+"=========");
-            System.out.println(dijkstraWDG.hasPathTo(v));
-            System.out.println(dijkstraWDG.distTo(v));
+            System.out.println("\n========="+v+"=========");
+            System.out.println("hasPathTo: " + dijkstraWDG.hasPathTo(v));
+            System.out.println("Distance: " + dijkstraWDG.distTo(v));
             dijkstraWDG.printSP(v);
         }
     }

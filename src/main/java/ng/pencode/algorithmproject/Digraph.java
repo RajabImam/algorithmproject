@@ -82,7 +82,7 @@ public class Digraph extends Graph<Integer,Edge<Integer>>{
 
         for(Edge<Integer> e: edges.get(source)){
             int nextVertex = e.to();
-            // if the next vertex has not been visted
+            // if the next vertex has not been visited
             if (!setVisited.contains(nextVertex)) {
                 // visit nextVertex
                 List<Integer>  nextVisited = dfs(nextVertex, setVisited);
