@@ -90,7 +90,8 @@ public class DijkstraSP {
     /**/
     public boolean hasPathTo(int v){
         // If the node was marked, it should be visited
-        return marked[v];
+        // if a node is not visited at the end of the algorithm then there is no path
+        return !marked[v];
     }
 
     public float distTo(int v) {
