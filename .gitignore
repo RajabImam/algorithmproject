@@ -12,3 +12,7 @@ target/classes/ng/pencode/algorithmproject/Digraph.class
 .idea/vcs.xml
 .idea/misc.xml
 .idea/compiler.xml
+target/classes/subway/factories/SubwayGraphFactory.class
+*.class
+target/classes/subway/factories/SubwayGraphFactory.class
+target/classes/subway/SubwayStations.class

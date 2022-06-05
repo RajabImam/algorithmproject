@@ -30,7 +30,7 @@ public class DijkstraSP {
         return true;
     }
 
-    public void DijkstraSP(WDgraph G, int s) {
+    public DijkstraSP(WDgraph G, int s) {
         if (!verifyNonNegative(G)) return;
 
         // Initializing the visited nodes list

@@ -46,6 +46,10 @@ public class Main {
         System.out.println("End");
 
         System.out.println(DijkstraSP.verifyNonNegative((WDgraph) wdGraph));
+        DijkstraSP dijkstraWDG = new DijkstraSP((WDgraph) wdGraph, 0);
+        System.out.println(dijkstraWDG.hasPathTo(7));
+        System.out.println(dijkstraWDG.distTo(7));
+        dijkstraWDG.printSP(7);
      }
     
 }
