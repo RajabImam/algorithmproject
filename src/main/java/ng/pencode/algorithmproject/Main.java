@@ -18,7 +18,7 @@ public class Main {
 
     public static void main(String args[]) throws IOException {
         Scanner input = new Scanner(System.in);
-        // Create a unweighted-digraphs
+        // Create an unweighted-digraphs
         System.out.println("Introduce the path where the graph-DFS-BFS.txt file is stored");
         String file = input.nextLine();
         if (file.isEmpty()) {

@@ -11,18 +11,18 @@ import subway.factories.SubwayGraphFactory;
 public class Main {
 
     public static void main(String[] args) {
-        // Opening the file that contains the Parisian Subway informations
+        // Opening the file that contains the Parisian Subway information
         File subwayTextFile = new File("src/main/java/subway/metro.txt");
 
         // Calling the factory for the graph
         SubwayGraphFactory subwayGraphFactory = new SubwayGraphFactory(subwayTextFile);
 
-        // Making the list of the sations
+        // Making the list of the stations
         SubwayStations subwayStations;
         try {
             subwayStations = subwayGraphFactory.buildSubwayStations();
         } catch (Exception e) {
-            System.out.println("An error has occured during the reading of the file");
+            System.out.println("An error has occurred during the reading of the file");
             e.printStackTrace();
             return;
         }
@@ -32,21 +32,21 @@ public class Main {
         try {
             subwayGraph = subwayGraphFactory.buildSubwayGraph();
         } catch (Exception e) {
-            System.out.println("An error has occured during the reading of the file");
+            System.out.println("An error has occurred during the reading of the file");
             e.printStackTrace();
             return;
         }
 
-        // Asking the type of input yo want to do
+        // Asking the type of input you want to do
         Scanner answerScan = new Scanner(System.in);
         boolean isChoiceMade = false;
         boolean isSearchByID = true;
         do {
             System.out.println("Please enter the type of input you want to make (ID : i / Station name : n) :");
             String inputChoice = answerScan.nextLine();
-            if (inputChoice.trim().toLowerCase().equals("i") || inputChoice.trim().toLowerCase().equals("n")) {
+            if (inputChoice.trim().equalsIgnoreCase("i") || inputChoice.trim().equalsIgnoreCase("n")) {
                 isChoiceMade = true;
-                isSearchByID = inputChoice.trim().toLowerCase().equals("i");
+                isSearchByID = inputChoice.trim().equalsIgnoreCase("i");
             } else {
                 System.out.println("The input is wrong, please try again");
             }
@@ -103,7 +103,7 @@ public class Main {
             System.out.println("execution Time : " + executionTimeDijkstra + " ms");
         } else {
             System.out.println(
-                    "WIP : Implementation with the search fonction will be odne in a second version of the program");
+                    "WIP : Implementation with the search function will be done in a second version of the program");
         }
     }
 }
