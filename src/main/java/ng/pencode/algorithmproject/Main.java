@@ -49,12 +49,16 @@ public class Main {
             System.out.print(vertex + "->");
         System.out.println("End");
 
+        System.out.println("\nTest for the Dijkstra algorithm");
         System.out.println(DijkstraSP.verifyNonNegative((WDgraph) wdGraph));
-        DijkstraSP dijkstraWDG = new DijkstraSP((WDgraph) wdGraph, 0);
+        int s = 0;
+        DijkstraSP dijkstraWDG = new DijkstraSP((WDgraph) wdGraph, s);
         int v = 1;
-        System.out.println(dijkstraWDG.hasPathTo(v));
-        System.out.println(dijkstraWDG.distTo(v));
-        dijkstraWDG.printSP(v);
+        System.out.println("Is there a path between " + s + " and " + v + " ? Answer : " + dijkstraWDG.hasPathTo(v));
+        if (dijkstraWDG.hasPathTo(v)) {
+            System.out.println("Distance between " + s + " and " + v + " : " + dijkstraWDG.distTo(v));
+            dijkstraWDG.printSP(v);
+        }
     }
 
 }

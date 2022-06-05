@@ -115,7 +115,7 @@ public class DijkstraSP {
             return;
         }
         if (previous[v] == -1) {
-            System.out.println("Here is the shortest path to " + v + " : ");
+            System.out.println("Here is the shortest path : ");
             System.out.println(v + " ");
             return;
         }

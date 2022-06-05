@@ -19,8 +19,8 @@ public class SubwayGraphFactory {
     public WDgraph buildSubwayGraph() throws FileNotFoundException {
         Scanner scanFile = new Scanner(texteFile);
         String[] graphProprieties = scanFile.nextLine().split(" ");
-        int nbStations = Integer.parseInt(graphProprieties[0]);
-        int nbEdges = Integer.parseInt(graphProprieties[1]);
+        int nbStations = Integer.parseInt(graphProprieties[0].trim().replace("ï»¿", ""));
+        int nbEdges = Integer.parseInt(graphProprieties[1].trim());
         WDgraph subwayGraph = new WDgraph(nbStations, nbEdges);
 
         // Reading the file until we arrive to the edges of the graph
@@ -54,14 +54,18 @@ public class SubwayGraphFactory {
         SubwayStations stations = new SubwayStations();
         Scanner scanFile = new Scanner(texteFile);
         String[] graphProprieties = scanFile.nextLine().split(" ");
-        int nbStations = Integer.parseInt(graphProprieties[0]);
+        System.out.println(graphProprieties[0].trim().replace("ï»¿", ""));
+        int nbStations = Integer.parseInt(graphProprieties[0].trim().replace("ï»¿", ""));
 
         // We now make the list of stations
         for (int i = 0; i < nbStations; i++) {
             String[] dataStation = scanFile.nextLine().split(" ");
             int stationID = Integer.parseInt(dataStation[0].trim());
-            String stationName = dataStation[1].trim();
-            
+            String stationName = "";
+            for (int j = 1; j < dataStation.length; j++) {
+                stationName += dataStation[j] + " ";
+            }
+            stations.addStation(stationID, stationName.trim());
         }
         return stations;
     }
